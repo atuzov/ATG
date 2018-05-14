@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c1a78eeb025f0f148a1d135444ea9b65
+timeCreated: 1522655776
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lintsec
+  fontNames:
+  - Lintsec
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
