@@ -21,11 +21,7 @@ namespace AnotherTankGame{
             _audioManager.Initialize();
             _uiManager.Initialize();
             _gameController.Initialize();
-
-
-            var levelContainer = GameObject.Find("LevelContainer");
-            Assert.IsNotNull(levelContainer);
-            _levelManager.Initilaze(levelContainer);
+            _levelManager.Initilaze();
         }
     }
 }

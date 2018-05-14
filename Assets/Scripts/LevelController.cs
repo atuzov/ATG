@@ -28,28 +28,18 @@ namespace AnotherTankGame{
         private PlayerFacade _player;
         private HeadQuarter _headQuarter;
         private LevelData _levelData;
-        private GameObject _borderContainer;
         private MapData _mapData;
-        private readonly List<Block> _blocks;
+        private List<Block> _blocks;
         private int _killedTankCount = 0;
         private EnemySpawnController _enemySpawnController;
 
-        public LevelController() {
+        public void StartLevel(LevelData levelData) {
             _blocks = new List<Block>();
-        }
-
-        public void Initilize(GameObject borderContainer) {
-            Assert.IsNotNull(borderContainer);
-            _borderContainer = GameObject.FindWithTag("BorderContainer");
-        }
-
-        public void StartLevel(LevelData levelData, GameObject levelContainer) {
             _levelData = levelData;
             _setLevelNameSignal.Fire(levelData.LevelName);
             _headQuarter = _hqPool.Spawn();
             _headQuarter.transform.position = levelData.HqPosition;
             _playerSpewnPoint = levelData.PlayerSpawnVector3;
-            _borderContainer.SetActive(true);
             GetMapFromTexture(_levelData.LevelGeometry);
             _mapData = new MapData(_levelData.LevelGeometry);
             _collidedWithBlockSignal += onCollidedWithBlock;
@@ -198,7 +188,6 @@ namespace AnotherTankGame{
             _killedTankCount = 0;
             SendTankCountInfo();
             _enemySpawnController.Dispose();
-            _borderContainer.SetActive(false);
             _hqPool.Despawn(_headQuarter);
             _playerPool.Despawn(_player);
             _collidedWithBlockSignal -= onCollidedWithBlock;

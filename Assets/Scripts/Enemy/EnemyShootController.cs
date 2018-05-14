@@ -37,7 +37,6 @@ namespace AnotherTankGame{
                 _bullet.MoveDirection = _enemy.LookDir;
                 _bullet.OnBulletColided += OnBulletDespawn;
                 _bullet.BulletOwner = BulletOwnerType.Enemy;
-                Debug.Log(_enemy.LookDir);
                 _bullet.transform.position = _enemy.Position + _enemy.LookDir * _settings.BulletOffsetDistance;
                 _bullet.transform.rotation = Quaternion.LookRotation(_enemy.LookDir);
                 _isAllowFire = false;

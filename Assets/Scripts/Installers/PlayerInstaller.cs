@@ -7,7 +7,6 @@ namespace AnotherTankGame{
         [SerializeField] Settings _settings = null;
 
         public override void InstallBindings() {
-            Debug.Log("PlayerInstaller");
             Container.Bind<Player>().AsSingle()
                 .WithArguments(_settings.Rigidbody);
 

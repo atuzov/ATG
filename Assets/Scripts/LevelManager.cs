@@ -9,13 +9,9 @@ namespace AnotherTankGame{
         [Inject] private StartGameSignal _startGameSignal;
         [Inject] private GameOverSignal _gameOverSignal;
         [Inject] private OnLevelSelectedSignal _onLevelSelectedSignal;
-
         private LevelData _currentLevel;
-        private GameObject _levelContainer;
-
-        public void Initilaze(GameObject levelContainer) {
-            Assert.IsNotNull(levelContainer);
-            _levelContainer = levelContainer;
+        
+        public void Initilaze() {
 
             Assert.IsNotNull(_levelController);
             Assert.IsNotNull(_levelPrefabsSettings);
@@ -24,12 +20,10 @@ namespace AnotherTankGame{
             _startGameSignal += OnGameStart;
             _gameOverSignal += OnGameOver;
             _onLevelSelectedSignal += OnLevelSelected;
-
-            _levelController.Initilize(_levelPrefabsSettings.BorderContainer);
         }
 
         private void OnGameStart() {
-            _levelController.StartLevel(_currentLevel, _levelContainer);
+            _levelController.StartLevel(_currentLevel);
         }
 
         private void OnGameOver(GameOverType gameOverType) {
